@@ -5,7 +5,8 @@ from django.http import HttpResponse
 def index(request):
     names = ['John', 'Doe', 'Jane']
     context = {
-        'names': names
+        'names': names,
+        'data' : '<b>dynamically generated html</b>',
     }
     return render(request, 'index.html', context)
 
