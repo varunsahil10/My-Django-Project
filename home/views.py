@@ -3,10 +3,10 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("This is Homepage!!!😎")
+    return render(request, 'index.html')
 
 def contact(request):
-    return HttpResponse("This is Contact page!!!📞")
+    return render(request, 'contact.html')
 
 def dynamic_route(request,number):
     result = f"Table of {number} is :"
