@@ -24,3 +24,33 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+
+
+#  One-to-One Relationship
+class Address(models.Model):
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE, primary_key=True)
+
+    def __str__(self):
+        return self.city
+    
+
+#  One-to-Many Relationship
+class Teacher(models.Model):
+    name = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+    
+
+#  Many-to-Many Relationship
+class Course(models.Model):
+    name = models.CharField(max_length=100)
+    student = models.ManyToManyField(Student)
+
+    def __str__(self):
+        return self.name
+    
