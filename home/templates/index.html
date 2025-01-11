@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Django Project</title>
-</head>
-
-<body>
-    <h1>Homepage</h1>
-    <p>This is the Home page</p>
-    <a href="/contact">Contact</a>
-    <h2>Names</h2>
-    {{ data }} <!-- Note this is automatically escaped -->
-</body>
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h1>Welcome to my Django project!</h1>
 
 
-</html>
+    
+{% endblock %}
