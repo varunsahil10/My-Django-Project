@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import StudentForm
 from .models import Student
@@ -19,6 +19,8 @@ def index(request):
 
             student = Student(name=name, roll=roll)
             student.save()
+
+            return redirect('home')
 
     names = ['John', 'Doe', 'Jane']
     context = {
