@@ -23,12 +23,12 @@ class Student(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return str(self.roll) + ' - ' + self.name
 
 
 #  One-to-One Relationship
 class Address(models.Model):
-    city = models.CharField(max_length=100)
+    # city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     student = models.OneToOneField(Student, on_delete=models.CASCADE, primary_key=True)
 
