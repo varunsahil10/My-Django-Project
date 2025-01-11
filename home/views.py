@@ -13,12 +13,12 @@ def index(request):
         if form.is_valid():
             print(request.POST)
             print(form.cleaned_data)
-            data = form.cleaned_data
-            name = data['name']
-            roll = data['roll']
+            # data = form.cleaned_data
+            # name = data['name']
+            # roll = data['roll']
 
-            student = Student(name=name, roll=roll)
-            student.save()
+            # student = Student(name=name, roll=roll)
+            form.save()
 
             return redirect('home')
 
