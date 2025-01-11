@@ -1,10 +1,28 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import StudentForm
+from .models import Student
+
 # Create your views here.
 
 def index(request):
+
+    form = StudentForm()
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            print(request.POST)
+            print(form.cleaned_data)
+            data = form.cleaned_data
+            name = data['name']
+            roll = data['roll']
+
+            student = Student(name=name, roll=roll)
+            student.save()
+
     names = ['John', 'Doe', 'Jane']
     context = {
+        'form': form,
         'names': names,
         'data' : '<b>dynamically generated html</b>',
     }
