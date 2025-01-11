@@ -33,7 +33,7 @@ class Address(models.Model):
     student = models.OneToOneField(Student, on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):
-        return self.city
+        return self.state
     
 
 #  One-to-Many Relationship
