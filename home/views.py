@@ -39,3 +39,19 @@ def dynamic_route(request,number):
        result += f"\n {number} * {i} = {number * i}"
     print(result) 
     return HttpResponse(result)
+
+def search(request):
+    students = Student.objects.all()
+
+    print(request.GET)
+    if 'search' in request.GET:
+        # searching name
+        name = request.GET['search']
+        students = students.filter(name__icontains=name)
+
+    context = {
+        'students': students
+    }
+
+    return render(request, 'search.html', context)
+
