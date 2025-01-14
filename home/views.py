@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import StudentForm
 from .models import *
+from django.db.models import Q
 
 # Create your views here.
 
@@ -64,7 +65,12 @@ def search_teacher(request):
         search = request.GET['search']
         
         # searching name
-        teachers = teachers.filter(student__name__icontains=search)
+        teachers = teachers.filter(
+            Q(student__name__icontains=search) |
+            Q(name__icontains=search) |
+            Q(subject__icontains=search)
+            
+            )
 
     context = {
         'teachers': teachers,
