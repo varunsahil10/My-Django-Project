@@ -7,6 +7,11 @@
     <h1>This is Search page!</h1>
     <form method="GET">
         <input type="search" name="search" placeholder="Search here..." value="{{ request.GET.search }}">
+        <select name="roll" id="roll">
+            <option value="">Select Roll</option>
+            <option value="1" {% if request.GET.roll == '1' %} selected {% endif %}>1-50</option>
+            <option value="2" {% if request.GET.roll == '2' %} selected {% endif %}>51+</option>
+        </select>
         <button type="submit">SUBMIT!</button>
     </form>
 

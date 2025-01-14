@@ -51,6 +51,16 @@ def search_student(request):
         # searching name
         students = students.filter(name__icontains=search)
 
+    if 'roll' in request.GET:
+        roll = request.GET['roll']
+        
+        # searching roll
+        if roll == '1':
+            students = students.filter(roll__gte=1, roll__lte=50)
+        
+        elif roll == '2':
+            students = students.filter(roll__gte=51)
+
     context = {
         'students': students
     }
