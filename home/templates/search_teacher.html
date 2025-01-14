@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+
+    {{ block.super }}
+    <h1>This is Search Teacher page!</h1>
+    <form method="GET">
+        <label for="search"> Search Teachers by student name:</label>
+        <input type="search" name="search" placeholder="Search here..." value="{{ request.GET.search }}">
+        <button type="submit">SUBMIT!</button>
+    </form>
+
+    <h2>Search Results:</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Teacher Name</th>
+                <th>Subject</th>
+                <th>Student Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher in teachers %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ teacher.name }}</td>
+                <td>{{ teacher.subject }}</td>
+                <td>{{ teacher.student.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
