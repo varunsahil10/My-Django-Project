@@ -54,3 +54,19 @@ class Course(models.Model):
     def __str__(self):
         return self.name
     
+
+#ORM
+
+class Restaurant(models.Model):
+    class Type(models.TextChoices):
+        VEG = 'Veg'
+        NON_VEG = 'Non-Veg'
+        BOTH = 'Both'
+
+    name = models.CharField(max_length=100)
+    restaurant_type = models.CharField(max_length=10, choices=Type.choices)
+
+class Rating(models.Model):
+    rating = models.IntegerField()
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE,
+                                   related_name='ratings')
