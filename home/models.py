@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core import validators
 # Create your models here.
 
 GENDER_CHOICES = (
@@ -69,4 +69,8 @@ class Restaurant(models.Model):
 class Rating(models.Model):
     rating = models.IntegerField()
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE,
-                                   related_name='ratings')
+                                   related_name='ratings',
+                                   validators=[
+                                       validators.MaxValueValidator(5),
+                                       validators.MinValueValidator(1)
+                                   ])
