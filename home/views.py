@@ -93,13 +93,15 @@ def search_teacher(request):
 def search_restaurant(request):
     restaurants = Restaurant.objects.all()
 
-    # searching restaurant
-    restaurants = Restaurant.objects.prefetch_related('ratings')
-    # res = Restaurant.objects.first()
-    # print(res.ratings.all())
+    # Learn prefetch_related
+    # restaurants = Restaurant.objects.all().prefetch_related('ratings')
+
+    # Learn select_related
+    ratings = Rating.objects.all().select_related('restaurant')
 
     context = {
-        'restaurants': restaurants,
+        # 'restaurants': restaurants,
+        'ratings': ratings,
     }
 
     return render(request, 'restaurants.html', context)

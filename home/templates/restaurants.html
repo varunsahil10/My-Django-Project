@@ -4,7 +4,8 @@
 
     {{ block.super }}
 
-    <h1>Restaurants:</h1>
+    
+    <!-- <h1>Restaurants:</h1>
     <table class="table table-striped-columns">
         <thead>
             <tr>
@@ -21,6 +22,29 @@
                 <td>{{ restaurant.name }}</td>
                 <td>{{ restaurant.restaurant_type }}</td>
                 <td>{{ restaurant.ratings.all }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> -->
+
+    
+
+
+    <h1>Rating:</h1>
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Rating</th>
+                <th>Restaurants</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rating in ratings %}
+            <tr>
+                <td>{{ rating.id }}</td>
+                <td>{{ rating.rating }}</td>
+                <td>{{ rating.restaurant }}</td>
             </tr>
             {% endfor %}
         </tbody>
