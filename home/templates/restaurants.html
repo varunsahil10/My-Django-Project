@@ -11,6 +11,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Type</th>
+                <th>Faaltu</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                 <td>{{ restaurant.id }}</td>
                 <td>{{ restaurant.name }}</td>
                 <td>{{ restaurant.restaurant_type }}</td>
+                <td>{{ restaurant.ratings.all }}</td>
             </tr>
             {% endfor %}
         </tbody>

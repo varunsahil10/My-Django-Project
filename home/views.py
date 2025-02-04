@@ -94,7 +94,9 @@ def search_restaurant(request):
     restaurants = Restaurant.objects.all()
 
     # searching restaurant
-    restaurants = Restaurant.objects.all()
+    restaurants = Restaurant.objects.prefetch_related('ratings')
+    # res = Restaurant.objects.first()
+    # print(res.ratings.all())
 
     context = {
         'restaurants': restaurants,

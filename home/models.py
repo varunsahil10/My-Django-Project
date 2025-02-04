@@ -74,3 +74,6 @@ class Rating(models.Model):
                                        validators.MaxValueValidator(5),
                                        validators.MinValueValidator(1)
                                    ])
+    
+    def __str__(self):
+        return str(self.id) + ' :- ' + str(self.rating)
