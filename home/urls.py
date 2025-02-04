@@ -7,4 +7,5 @@ urlpatterns = [
     path('dynamic_route/<int:number>', dynamic_route),
     path('search_student/', search_student,name='search_student'),
     path('search_teacher/', search_teacher,name='search_teacher'),
+    path('search_restaurant/', search_restaurant,name='search_restaurant'),
 ]

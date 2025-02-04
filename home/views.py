@@ -88,3 +88,17 @@ def search_teacher(request):
 
     return render(request, 'search_teacher.html', context)
 
+#restaurant
+
+def search_restaurant(request):
+    restaurants = Restaurant.objects.all()
+
+    # searching restaurant
+    restaurants = Restaurant.objects.all()
+
+    context = {
+        'restaurants': restaurants,
+    }
+
+    return render(request, 'restaurants.html', context)
+
